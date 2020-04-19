@@ -1,3 +1,5 @@
+const rootDir = 'https://surabhi226005.github.io/service-worker/';
+
 if (navigator.serviceWorker) {
     console.log('Service worker registration in progress.');
     navigator.serviceWorker.register('./js/service-worker.js')
@@ -10,7 +12,7 @@ if (navigator.serviceWorker) {
     });
 
     const img = new Image();
-    img.src = '../images/pixel.gif';
+    img.src = `${rootDir}images/pixel.gif`;
     document.body.appendChild(img);
 } else {
     console.log('Service Worker is not supported in this browser.');

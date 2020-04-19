@@ -3,9 +3,6 @@ console.log('WORKER: executing.');
 const CACHE_NAME = 'web-app-cache';
 
 const rootDir = 'https://surabhi226005.github.io/service-worker/';
-// const rootDir = 'http://localhost:8080/';
-
-console.log(rootDir, "rootDir")
 
 const urlsToCache = [
     rootDir,
