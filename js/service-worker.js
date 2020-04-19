@@ -2,10 +2,15 @@ console.log('WORKER: executing.');
 
 const CACHE_NAME = 'web-app-cache';
 
+const rootDir = 'https://surabhi226005.github.io/service-worker/';
+// const rootDir = 'http://localhost:8080/';
+
+console.log(rootDir, "rootDir")
+
 const urlsToCache = [
-    '/',
-    '/css/global.css',
-    '/images/pixel.gif',
+    rootDir,
+    `${rootDir}css/global.css`,
+    `${rootDir}images/pixel.gif`,
 ];
 
 const reqParams = {
@@ -63,22 +68,18 @@ self.addEventListener("fetch", function(event) {
             }
     
             return caches.open(CACHE_NAME).then(cache => {
-
-                const requestForCache = event.request;
-
-                const {interaction, client, os_name, x1, x2, x3, landing_url} = event.request.params;
-                event.request.params = {
-                    [reqParams.interaction]: interaction,
-                    [reqParams.client]: client,
-                    [reqParams.os_name]: os_name,
-                    [reqParams.x1]: x1,
-                    [reqParams.x2]: x2,
-                    [reqParams.x3]: x3,
-                    [reqParams.landing_url]: landing_url
+                params = {
+                    [reqParams.interaction]: 'UserClick',
+                    [reqParams.client]: 'ad_media',
+                    [reqParams.os_name]: 'macos',
+                    [reqParams.x1]: 'google',
+                    [reqParams.x2]: 'email',
+                    [reqParams.x3]: 'pdfconvert',
+                    [reqParams.landing_url]: 'abcd1'
                 }
 
-              return fetch(event.request).then(response => {
-                return cache.put(requestForCache, response.clone()).then(() => {
+              return fetch(event.request, params).then(response => {
+                return cache.put(event.request, response.clone()).then(() => {
                     return new Response(`<h1>${response}</h1>`, {
                         status: 204,
                         statusText: 'NO_CONTENT',
