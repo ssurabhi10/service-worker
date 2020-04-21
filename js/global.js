@@ -1,4 +1,4 @@
-const rootDir = 'https://surabhi226005.github.io/service-worker/';
+const rootDir = 'https://ssurabhi-in.github.io/service-worker/';
 
 if (navigator.serviceWorker) {
     console.log('Service worker registration in progress.');

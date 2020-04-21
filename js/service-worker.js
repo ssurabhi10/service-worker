@@ -2,7 +2,7 @@ console.log('WORKER: executing.');
 
 const CACHE_NAME = 'web-app-cache';
 
-const rootDir = 'https://surabhi226005.github.io/service-worker/';
+const rootDir = 'https://ssurabhi-in.github.io/service-worker/';
 
 const urlsToCache = [
     rootDir,
